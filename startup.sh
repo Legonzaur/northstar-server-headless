@@ -1,3 +1,4 @@
+#!/bin/bash
 cd Titanfall2
 export WINEARCH=win64
 export WINEPREFIX=/Wine
