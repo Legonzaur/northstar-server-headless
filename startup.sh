@@ -9,8 +9,8 @@ export WINEDEBUG=-all
 winetricks dxvk || true
 
 if [ ! -f "NorthstarLauncher.exe" ]; then
-    wget https://github.com/R2Northstar/Northstar/releases/download/v1.1.3/Northstar.release.v1.1.3.zip
-    unzip Northstar.release.v1.1.3.zip
+    curl -s https://api.github.com/repos/R2Northstar/Northstar/releases/latest | grep browser_download_url | cut -d '"' -f 4 | xargs wget -O northstar.zip
+    unzip northstar.zip
 fi                                                           
                                                              
 xvfb-run bash -c "wine NorthstarLauncher.exe -dedicated -multiple | cat"
