@@ -9,9 +9,15 @@ export WINEDEBUG=-all
 
 winetricks dxvk || true
 
-if [ ! -f "NorthstarLauncher.exe" ]; then
-    curl -s https://api.github.com/repos/R2Northstar/Northstar/releases/latest | grep browser_download_url | cut -d '"' -f 4 | xargs wget -O northstar.zip
-    unzip northstar.zip
-fi                                                           
-                                                             
+API_DATA=$(curl -s https://api.github.com/repos/R2Northstar/Northstar/releases/latest)
+LATEST_VER=$(echo "$API_DATA" | grep tag_name | cut -d '"' -f 4)
+VERFILE="northstar-version.txt"
+
+if  ( [ -f "$VERFILE" ] && [ "$LATEST_VER" != $(cat $VERFILE) ] ) || [ ! -f "NorthstarLauncher.exe" ]
+then
+    echo "$API_DATA" | grep browser_download_url | cut -d '"' -f 4 | xargs wget -O northstar.zip
+    unzip northstar.zip && rm northstar.zip
+    echo "$LATEST_VER" > "$VERFILE"
+fi
+
 xvfb-run bash -c "wine NorthstarLauncher.exe -dedicated -multiple | cat"
