@@ -6,4 +6,4 @@ The docker container automatically installs Northstar if it doesn't finds Norths
 
 Non-docker version : https://gist.github.com/Legonzaur/757ee82da567663a51b6ea5d0e0cc4e6
 
-see (pg9182/northstar-dedicated)[https://github.com/pg9182/northstar-dedicated] for detailled informations and future versions
+see [pg9182/northstar-dedicated](https://github.com/pg9182/northstar-dedicated) for detailled informations and future versions
