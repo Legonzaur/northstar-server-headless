@@ -7,12 +7,12 @@ RUN pacman -S --noconfirm vulkan-icd-loader vulkan-swrast wine winetricks xorg-s
 ARG WINEPREFIX /Wine
 ENV WINEPREFIX /Wine
 
+RUN mkdir dxvk
+
 RUN git clone --branch northstar --single-branch https://github.com/pg9182/dxvk
 RUN /dxvk/package-release.sh master / --no-package
-RUN wineboot -i -e && wineserver --wait
-RUN /dxvk-master/setup_dxvk.sh install
-
-RUN mkdir Titanfall2
+#RUN wineboot -i -e && wineserver --wait
+#RUN /dxvk-master/setup_dxvk.sh install
 
 COPY startup.sh /
 RUN chmod +x startup.sh
