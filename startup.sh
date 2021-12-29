@@ -12,7 +12,8 @@ API_DATA=$(curl -s https://api.github.com/repos/R2Northstar/Northstar/releases/l
 LATEST_VER=$(echo "$API_DATA" | grep tag_name | cut -d '"' -f 4)
 VERFILE="northstar-version.txt"
 
-if [ -f "$VERFILE" ] && [ "$LATEST_VER" != cat "$VERFILE" ] ||  then
+if  ( [ -f "$VERFILE" ] && [ "$LATEST_VER" != $(cat $VERFILE) ] ) || [ ! -f "NorthstarLauncher.exe" ]
+then
     echo "$API_DATA" | grep browser_download_url | cut -d '"' -f 4 | xargs wget -O northstar.zip
     unzip northstar.zip && rm northstar.zip
     echo "$LATEST_VER" > "$VERFILE"
