@@ -9,10 +9,9 @@ export WINEDEBUG=fixme+all
 
 
 wineboot -i -e && wineserver --wait
-#/dxvk-master/setup_dxvk.sh install
 winetricks dxvk || true
-#cp /dxvk/d3d11.dll /Titanfall2/
 cp /dxvk-master/x64/d3d11.dll /Wine/dosdevices/c:/windows/system32/
+
 if [ ! -f "NorthstarLauncher.exe" ]; then
     curl -s https://api.github.com/repos/R2Northstar/Northstar/releases/latest | grep browser_download_url | cut -d '"' -f 4 | xargs wget -O northstar.zip
     unzip northstar.zip
