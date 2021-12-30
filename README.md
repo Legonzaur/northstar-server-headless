@@ -1,6 +1,6 @@
 # northstar-server-headless
 
-## This repository will be discontinued when a better image is released
+## This repository will be discontinued when a [better image](https://github.com/pg9182/northstar-dedicated) is released
 
 The docker container automatically installs Northstar if it doesn't finds NorthstarLauncher.exe in the Titanfall2 directory
 
