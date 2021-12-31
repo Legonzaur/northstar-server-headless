@@ -2,7 +2,7 @@
 
 ## This repository will be discontinued when a [better image](https://github.com/pg9182/northstar-dedicated) is released
 
-The docker container automatically installs Northstar if it doesn't finds NorthstarLauncher.exe in the Titanfall2 directory
+This docker container automatically installs Northstar if it doesn't finds NorthstarLauncher.exe in the Titanfall2 directory
 
 This docker container will most likely override your Northsar config and settings at first launch and at every Northstar update
 
