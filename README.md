@@ -6,7 +6,7 @@ The docker container automatically installs Northstar if it doesn't finds Norths
 
 This docker container will most likely override your Northsar config and settings at first launch and at every Northstar update
 
-Use `wine_custom` branch for experimental bugfixes 
+Build image from `wine_custom` branch for experimental bugfixes 
 
 ## How to run
 
