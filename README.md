@@ -21,7 +21,9 @@ docker build -t northstar .
 ```
 then run with 
 
-`docker run -d --mount type=bind,source="PATHTOYOURTITANFALLINSTALLATION",target="/Titanfall2" northstar`
+```bash
+docker run -d --mount type=bind,source="PATHTOYOURTITANFALLINSTALLATION",target="/Titanfall2" northstar
+```
 
 ## Other instructions
 
