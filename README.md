@@ -17,7 +17,8 @@ Build image from `wine_custom` branch for experimental bugfixes
 ```bash
 git clone https://github.com/Legonzaur/northstar-server-headless
 cd northstar-server-headless
-docker build -t northstar .```
+docker build -t northstar .
+```
 
 Non-docker version : https://gist.github.com/Legonzaur/757ee82da567663a51b6ea5d0e0cc4e6
 
