@@ -9,7 +9,8 @@ export WINEDEBUG=-all
 
 
 wineboot -i -e && wineserver --wait
-winetricks dxvk || true
+#winetricks dxvk || true
+/dxvk-1.9.2/setup_dxvk.sh install
 cp /dxvk-master/x64/d3d11.dll /Wine/dosdevices/c:/windows/system32/
 
 if [ ! -f "NorthstarLauncher.exe" ]; then
@@ -17,4 +18,4 @@ if [ ! -f "NorthstarLauncher.exe" ]; then
     unzip northstar.zip
 fi                                                           
                                                              
-xvfb-run bash -c "wine NorthstarLauncher.exe -dedicated -multiple | cat"
+xvfb-run bash -c "wine64 NorthstarLauncher.exe -dedicated -multiple | cat"
