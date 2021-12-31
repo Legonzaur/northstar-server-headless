@@ -10,7 +10,9 @@ Build image from `wine_custom` branch for experimental bugfixes
 
 ## How to run
 
-`docker run -d --mount type=bind,source="PATHTOYOURTITANFALLINSTALLATION",target="/Titanfall2" legonzaur/northstar-server-headless:latest`
+```bash
+docker run -d --mount type=bind,source="PATHTOYOURTITANFALLINSTALLATION",target="/Titanfall2" legonzaur/northstar-server-headless:latest
+```
 
 ## How to build
 
