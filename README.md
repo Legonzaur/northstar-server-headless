@@ -19,6 +19,11 @@ git clone https://github.com/Legonzaur/northstar-server-headless
 cd northstar-server-headless
 docker build -t northstar .
 ```
+then run with 
+
+`docker run -d --mount type=bind,source="PATHTOYOURTITANFALLINSTALLATION",target="/Titanfall2" northstar`
+
+## Other instructions
 
 Non-docker version : https://gist.github.com/Legonzaur/757ee82da567663a51b6ea5d0e0cc4e6
 
