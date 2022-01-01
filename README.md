@@ -6,7 +6,7 @@ This docker container automatically installs Northstar
 
 This docker container will most likely override your Northsar config and settings at first launch and at every Northstar update
 
-**Build image from `wine_custom` branch for experimental bugfixes**
+**Build image from `wine_custom` branch for experimental changes**
 
 ## How to run
 
