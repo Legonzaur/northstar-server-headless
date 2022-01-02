@@ -1,7 +1,7 @@
 FROM archlinux
 
 RUN echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-RUN pacman -Syu --noconfirm
+RUN pacman -Syy && pacman -Syu --noconfirm
 RUN pacman -S --noconfirm base-devel vulkan-icd-loader vulkan-swrast xorg-server-xvfb mesa wget mingw-w64 glslang git ninja meson which
 
 ARG WINEPREFIX /Wine
@@ -9,7 +9,7 @@ ENV WINEPREFIX /Wine
 
 RUN mkdir dxvk
 
-RUN git clone --branch northstar --single-branch https://github.com/pg9182/dxvk
+RUN git clone https://github.com/pg9182/dxvk && cd dxvk && git checkout 504083e4c28186d95ae493a63c888b9ba8a7461d
 RUN /dxvk/package-release.sh master / --no-package
 
 RUN git clone https://github.com/wine-mirror/wine
@@ -20,8 +20,8 @@ RUN wget https://github.com/doitsujin/dxvk/releases/download/v1.9.2/dxvk-1.9.2.t
 RUN tar -xvf dxvk-1.9.2.tar.gz
 #RUN /dxvk_full/setup_dxvk.sh install
 
-#RUN wineboot -i -e && wineserver --wait
-#RUN /dxvk-master/setup_dxvk.sh install
+RUN (wineboot -i -e && wineserver --wait && /dxvk-1.9.2/setup_dxvk.sh install && wineserver --wait) | cat
+RUN cp /dxvk-master/x64/d3d11.dll /Wine/dosdevices/c:/windows/system32/
 
 COPY startup.sh /
 RUN chmod +x startup.sh
