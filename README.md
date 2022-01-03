@@ -11,7 +11,7 @@ This docker container will most likely override your Northsar config and setting
 ## How to run
 
 ```bash
-docker run -d --mount type=bind,source="PATHTOYOURTITANFALLINSTALLATION",target="/Titanfall2" legonzaur/northstar-server-headless:latest
+docker run -d --mount type=bind,source="PATHTOYOURTITANFALLINSTALLATION",target="/Titanfall2" -p 8081:8081 -p 37015:37015/udp legonzaur/northstar-server-headless:latest
 ```
 
 ## How to build
@@ -24,7 +24,7 @@ docker build -t northstar .
 then run with 
 
 ```bash
-docker run -d --mount type=bind,source="PATHTOYOURTITANFALLINSTALLATION",target="/Titanfall2" northstar
+docker run -d --mount type=bind,source="PATHTOYOURTITANFALLINSTALLATION",target="/Titanfall2" -p 8081:8081 -p 37015:37015/udp northstar
 ```
 
 ## Other instructions
